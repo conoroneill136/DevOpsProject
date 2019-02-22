@@ -24,7 +24,7 @@ namespace UserService.Controllers
         {
             if (TestUser.Email == email && TestUser.Password == password)
             {
-                return this.Ok("success");
+                return this.Ok("success: all good!");
             }
             else
             {
