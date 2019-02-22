@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.EntityFrameworkCore;
+using UserService.Model;
 
 namespace UserService
 {
@@ -27,6 +29,10 @@ namespace UserService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=UserService.RegistrationDb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<RegistrationContext>
+                (options => options.UseSqlServer(connection));
 
             services.AddSwaggerGen(c =>
             {

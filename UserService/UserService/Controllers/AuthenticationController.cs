@@ -12,17 +12,11 @@ namespace UserService.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
+        // controller used for original testing for workshop 2
+
         //test variables
-        Registration TestUser = new Registration { FirstName = "Conor", LastName = "Oneill", Email = "test@version1.com", Password = "test123" };
+        readonly Registration TestUser = new Registration { FirstName = "Conor", LastName = "Oneill", Email = "test@version1.com", Password = "test123" };
 
-
-
-        //// GET api/values
-        //[HttpGet]
-        //public ActionResult<IEnumerable<string>> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
 
         // POST api/Authentication
         [HttpPost]
@@ -36,6 +30,8 @@ namespace UserService.Controllers
             {
                 return this.Unauthorized();
             }
-        }
+
+        } 
+
     }
 }
